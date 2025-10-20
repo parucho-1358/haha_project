@@ -72,7 +72,11 @@ npm run dev   # 개발
 npm run build # 빌드
 npm run preview # 빌드 미리보기
                             
---------------------------------------------------------------------------------------------------------------
+---------------------
+
+
+
+
 
 ## 전체 시스템 구성도
 <img width="2175" height="1738" alt="1" src="https://github.com/user-attachments/assets/2d3dec2a-a5f9-4be5-ac63-d0eeea1448d7" />
