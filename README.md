@@ -1,16 +1,16 @@
-# React + Vite
+# 기획의도
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+-참고 사이트가 있다면 해당 사이트 링크와 차별점 기재 -노션주소(협업했다는 증거)
 
-Currently, two official plugins are available:
+# 구현할 핵심 기능
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- CRUD:생성/조회/수정/삭제 전부 구현
+- SPA(router)
+- 가상 스크롤: 데이터의 효율화 처리
+- 코드스플리팅: lazy+ Suspense 처리하기
+- 외부데이터 연동: 외부데이터 이름
+- 반응형웹(PC, 태블릿 or 모바일)
 
-## React Compiler
+# 각자 맡은 역할
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# flow + UI(gif 파일이면 더 좋음)
