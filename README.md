@@ -24,9 +24,9 @@
 ## 3) 화면 구성 / Flow
 - **페이지**: **Home**, Discover, Board, Library, Search , Playlist
 
-Header , Footer , SideBar를 고정시킴 - Header 부분의 search(검색창)는 다른 페이지를 들어가도 항상 보이게설정 (항상 접근 가능)
-                                    - footer 부분의 PlayerBar(재생바)                    ''
-                                    - SideBar 부분의  PlayList(플레이 리스트)  Librarypage로 연결되어 상세 트랙을 볼 수 있음
+Header , Footer , SideBar를 고정시킴 <br/>- Header 부분의 search(검색창)는 다른 페이지를 들어가도 항상 보이게설정 (항상 접근 가능)
+                                  <br/> - footer 부분의 PlayerBar(재생바)                    ''
+                                   <br/> - SideBar 부분의  PlayList(플레이 리스트)  Librarypage로 연결되어 상세 트랙을 볼 수 있음
 
 ---
 ### Home
