@@ -28,28 +28,29 @@ Header , Footer , SideBar를 고정시킴 - Header 부분의 search(검색창)�
                                     - footer 부분의 PlayerBar(재생바)                    ''
                                     - SideBar 부분의  PlayList(플레이 리스트)  Librarypage로 연결되어 상세 트랙을 볼 수 있음
 
-
+---
 ### Home
 중심이 되는 페이지   - YouTube Data API 를 활용한 인기 음악 영상 재생
 ![Home](https://github.com/user-attachments/assets/906edacc-5f63-4a82-b38b-34241abe7ba4)
                                          
-
+---
 ### Discover
 SoundCloud API를 받아와 실기간 인기차트를 불러옴
 Lazy + Suspense 를 사용해 사이트를 처음 들어갈때 로딩을 하지않음 -> Discover page를 들어와야 데이터 불러옴
 
 
-
+---
 ### Board
 게시판
 CRUD : 등록 / 조회(목록 펼침) / 수정(제목 + 내용수정) / 삭제
 ![Board](https://github.com/user-attachments/assets/eb06a354-f6db-4968-a75f-349a74ab509a)
 
-
+---
 ### Library
 나의 재생목록 (나의 플레이리스트 - 플리 상세 확인 가능)
 전역객체(Store)를 만들어 본인이 원하는 YouTube 영상 SoundCloud 음원을 어디서든 저장 할 수 있음
 
+---
 ### Playlist 
 플레이 리스트 상세영역
 Library page에서 플레이 리스트를 선택하면 
@@ -57,7 +58,7 @@ Library page에서 플레이 리스트를 선택하면
 ![Playlist](https://github.com/user-attachments/assets/cb5c3851-ba94-4390-af44-dabf1902cc4f)
 
 
-
+---
 ### Search 
 검색창에 검색어를 입력 - 관련검색어 SoundCloud API 와 YouTube Data API 를 사용하여 관련 영상과 음원을 표출 
 ![Search](https://github.com/user-attachments/assets/d64f0fab-a0b5-4f20-aa97-5e21acfda458)
