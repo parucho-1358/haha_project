@@ -63,6 +63,14 @@ Library page에서 플레이 리스트를 선택하면
 검색창에 검색어를 입력 - 관련검색어 SoundCloud API 와 YouTube Data API 를 사용하여 관련 영상과 음원을 표출 
 ![Search](https://github.com/user-attachments/assets/d64f0fab-a0b5-4f20-aa97-5e21acfda458)
 
+
+## 🚀 Quick Start
+```bash
+# Node 버전 권장: LTS (예: 18+)
+npm install
+npm run dev   # 개발
+npm run build # 빌드
+npm run preview # 빌드 미리보기
                             
 --------------------------------------------------------------------------------------------------------------
 
