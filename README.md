@@ -67,11 +67,11 @@ Library page에서 플레이 리스트를 선택하면
 ## 🚀 Quick Start
 bash
 # Node 버전 권장: LTS (예: 18+)
-npm install
+```npm install
 npm run dev   # 개발
 npm run build # 빌드
 npm run preview # 빌드 미리보기
-                            
+```
 ---------------------
 
 
