@@ -73,13 +73,21 @@ Library page에서 플레이 리스트를 선택하면
 ![Search](https://github.com/user-attachments/assets/d64f0fab-a0b5-4f20-aa97-5e21acfda458)
 
 
-🚀 Quick Start<br/>
-bash
-<br/>Node 버전 권장: LTS (예: 18+)
-```npm install
-npm run dev   # 개발
-npm run build # 빌드
-npm run preview # 빌드 미리보기
+
+## 🚀Quick Start<br/>
+```bash
+# 1) 의존성
+npm i
+
+# 2) 환경변수
+cp .env.example .env  # 값 채우기
+
+# 3) 개발 서버
+npm run dev
+
+# 4) 빌드/미리보기
+npm run build
+npm run preview
 ```
 ---------------------
 
