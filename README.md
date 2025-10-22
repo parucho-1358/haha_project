@@ -34,7 +34,7 @@
 
 ## 🚀 기획 의도
 
-### 🎯 문제의식
+### 문제의식
 음악을 “듣기 전 탐색” 단계에서, 플랫폼마다 흩어진 **트렌딩 / 검색 / 플레이리스트 관리 UX**가 제각각이라 **발견 - 보관 - 재생** 흐름이 단절되어 있습니다.
 
 ### 🏆 핵심 목표
@@ -113,16 +113,9 @@
 > **Flow 요약:**
 > 사용자 진입 → SC 트렌딩 + YT 인기(음악) 동시 호출 → 응답 정규화(MediaItem) 및 카드 렌더 → 카드 클릭 → 즉시 재생 (SC/YT) 또는 플레이리스트에 추가
 
-#### ◾ 사용 기술
-* **Frontend**: React, Zustand (전역 상태 관리)
-* **Backend**: Spring Boot
-* **APIs**: SoundCloud API, YouTube Data v3
-
 #### ◾ 핵심 구현 방식
 * **트렌딩 및 무한 스크롤**:
-    * 최초 진입 시 SoundCloud 트렌딩 데이터를 호출합니다.
-    * 응답받은 `next_href` 값을 `nextCursor`로 저장하여 다음 페이지를 관리합니다.
-    * 가로 스크롤 시, 오른쪽 끝에 위치한 'Sentinel' 요소가 감지되면 `nextCursor`를 기반으로 다음 페이지를 로드하는 **무한 스크롤**을 구현했습니다.
+    'Sentinel' 요소가 감지되면 `nextCursor`를 기반으로 다음 페이지를 로드하는 **무한 스크롤**을 구현했습니다.
 
 * **음악 재생 (NowPlaying)**:
     * 음악 카드 클릭 시, Zustand의 `useNowPlayingStore`를 사용합니다.
@@ -133,16 +126,13 @@
 
 * **검색**:
     * 상단 검색창을 통해 입력된 키워드로 YouTube 및 SoundCloud 데이터를 통합 검색합니다.
+![Home](https://github.com/user-attachments/assets/85c1665b-c03c-44b9-9761-736ecd707950)
 
+    
 ### 2. Search
 > **Flow 요약:**
 > 사용자 키워드 입력 → (GET) YouTube API + SoundCloud API **병렬 호출** → 통합 결과 UI 렌더링 → 재생 또는 플리 추가
-
-#### ◾ 사용 기술
-* **Frontend**: React, Zustand (전역 상태 관리)
-* **Backend**: Spring Boot (API Proxy)
-* **APIs**: SoundCloud API, YouTube Data v3
-
+> 
 #### ◾ API 호출 흐름
 * **SoundCloud (백엔드 프록시)**:
     * `Frontend → Backend (Spring Boot) → SoundCloud API`
@@ -160,6 +150,7 @@
 * **재생 및 플레이리스트 추가**:
     * **즉시 재생**: 아이템 클릭 시 `useNowPlayingStore.playTrack(item, results)`를 호출, 현재 검색 결과(`results`)를 통째로 재생 목록 큐로 설정합니다.
     * **플리 추가**: `usePlaylistStore`의 액션을 호출하며, 상태 업데이트 시 **함수형 업데이트**를 사용해 이전 상태(prev)를 기반으로 안전하게 새 항목을 추가합니다.
+![Search](https://github.com/user-attachments/assets/1da1c1db-f3d6-4746-9ef0-b838f41bba6b)
 
 ### 3. Discover
 > **Flow 요약:**
@@ -171,36 +162,19 @@
 > **Flow 요약:**
 > 로컬 데이터 로드 → 목록 렌더 (제목만) → 입력 (Enter 제출) → 등록 성공 시 상단 추가 + 자동 펼침 + 알림 → 수정 (폼 전환) / 삭제 (대상 제거) → 즉시 화면 및 로컬 동기화
 
-#### ◾ 사용 기술
-* **코드 스플리팅**: `React.lazy` 및 `<Suspense />`
-
 #### ◾ 성능 최적화 (Code Splitting)
-* 이 게시판 컴포넌트는 사용자가 해당 기능 페이지에 진입할 때까지 로드되지 않습니다.
-* `React.lazy()`를 사용해 컴포넌트를 **동적 임포트(Dynamic Import)**하여 메인 번들(bundle)의 크기를 줄였습니다.
-* 컴포넌트를 로드하는 동안 `<Suspense />`를 통해 사용자에게 로딩 중임을 나타내는 폴백(Fallback) UI를 표시하여 **초기 로딩 성능을 최적화**했습니다.
+* `React.lazy()` `<Suspense />` 를사용해 **초기 로딩 성능을 최적화**했습니다.
 
 #### ◾ 핵심 구현 방식 (CRUD Flow)
 * **Create (등록)**:
-    * **유효성 검사**: 제목(필수, 최대 20자) 및 내용(선택, 최대 200자) 입력을 검증합니다.
-    * **UX**: `Shift+Enter` (줄 바꿈)를 제외한 `Enter` 키 입력으로도 제출이 가능합니다.
-    * **피드백**: 성공/실패 시 알림을 표시하며, 새 글은 리스트의 **최상단에 추가**되고 **자동으로 펼쳐집니다.**
-
-* **Read (조회 및 아코디언 UI)**:
-    * 초기에는 제목 목록만 표시하고, 제목 클릭 시 CSS `transition`과 `max-height` 속성을 이용해 내용 영역이 **부드럽게 확장되는 아코디언(Accordion)** 인터페이스를 구현했습니다.
-    * **사용자 편의성**: 다른 글을 클릭하거나 컴포넌트 외부 영역을 클릭하면 이전에 열려있던 글은 자동으로 닫힙니다.
-
-* **Update & Delete (수정/삭제)**:
-    * **수정**: 펼쳐진 상태에서 '수정' 버튼 클릭 시, 기존 내용이 채워진 동일한 폼으로 즉시 전환됩니다.
-    * **삭제**: '삭제' 시 해당 글만 목록에서 즉시 제거되며, 열려 있던 상태도 함께 해제됩니다.
+*  **Read  (조회)**
+* **Update (수정)**:
+* **Delete (삭제)**
+![Board](https://github.com/user-attachments/assets/978492bd-1580-4598-83c3-0cf33a4194d8)
 
 ### 5. Library (플레이리스트)
 > **Flow 요약:**
 > 플리 목록 로드 (LocalStorage) → 플리 생성/이름변경/삭제, 트랙 추가/제거/정렬 → 변경 즉시 LocalStorage 저장 → 항목 클릭 → 상세 페이지 이동 및 재생
-
-#### ◾ 사용 기술
-* **Frontend**: React
-* **Zustand (전역 상태 관리)**
-* **데이터 영속성**: Zustand `persist` 미들웨어 (LocalStorage 연동)
 
 #### ◾ 데이터 영속성 (Persistence)
 * 사용자가 생성/수정한 모든 플레이리스트 데이터는 브라우저가 종료되어도 유지되어야 합니다.
@@ -220,6 +194,8 @@
 * **Delete (항목 삭제)**:
     * 플레이리스트 상세 목록의 각 항목(트랙) 우측에 위치한 `⋯` (컨텍스트 메뉴) 버튼을 통해 '삭제' 기능을 제공합니다.
     * '삭제' 선택 시, `usePlaylistStore`의 액션 함수가 호출되어 해당 `id`의 플레이리스트 배열에서 선택된 항목을 제거하고 스토어 상태를 업데이트합니다.
+    * 
+![Playlist](https://github.com/user-attachments/assets/227f6837-4661-4430-9b67-2b6d0c970342)
 
 ---
 
@@ -243,5 +219,5 @@ cd backend
 ---
 
 ## 🤝 협업 증빙 (Notion)
-
+조원 :  이건호 | 문주연 | 성건우
 📎 [프로젝트 협업 노션 바로가기](https://www.notion.so/28cdc650186780829d51ca8ed95de9bb?v=28cdc6501867808d96d6000c2ce8a77e)
