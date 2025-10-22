@@ -84,6 +84,9 @@ Lazy + Suspense 를 사용해 사이트를 처음 들어갈때 로딩을 하지�
 **빈 목록 안내**  
 - 게시글이 없을 때는 **“아직 게시글이 없습니다. ‘등록’ 버튼으로 첫 글을 추가해보세요.”** 안내 문구 출력.  
   *(코드: `Board.jsx`의 빈 상태 렌더링)*
+![Board](https://github.com/user-attachments/assets/0302d1bb-789a-4218-9d74-375636ad02da)
+
+
 
 ---
 ### Library
