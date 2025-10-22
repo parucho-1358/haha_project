@@ -217,3 +217,6 @@ npm run dev
 cd backend
 ./gradlew bootRun
 ```
+---
+
+마치며 
