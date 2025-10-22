@@ -1,23 +1,4 @@
 
-<p align="center">
-  <img src="https://img.shields.io/badge/README-%F0%9F%93%9D-blue" alt="readme-badge" />
-  <img src="https://img.shields.io/badge/Keep%20Original-100%25-success" alt="keep-original" />
-  <img src="https://img.shields.io/badge/Images-Unmodified-informational" alt="images-unmodified" />
-</p>
-
-<p align="center">
-  <a href="#-원문-전체"><b>📄 원문 전체로 이동</b></a>
-</p>
-
----
-
-
-
----
-
-<details open>
-<summary><b>📄 원문 전체</b></summary>
-
 <h1>🎧 MUSIC WEBSITE</h1>
 
 <h2>기획의도</h2>
@@ -258,5 +239,5 @@ npm run dev
 
 
 
-</details>
+
 
